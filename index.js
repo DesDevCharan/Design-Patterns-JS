@@ -1,26 +1,31 @@
 // Import stylesheets
 import './style.css';
-
-function Fedex() {
-  this.calc = () => 238;
+function Car(name) {
+  this.name = name;
+  this.type = '4 Wheeler';
 }
-function UPS() {
-  this.calc = () => 290;
-}
-function PRO() {
-  this.calc = () => 400;
+function Bike(name) {
+  this.name = name;
+  this.type = '2 Wheeler';
 }
 
-function Strategy() {
-  this.company = '';
-  this.setStrategy = (comp) => this.company = comp;
-  this.calc = () => this.calc = this.company.calc();
+function VehicleFact() {
+  this.create = (name, type) => {
+    switch (type) {
+      case 2:
+        return new Bike(name);
+        break;
+      case 4:
+        return new Car(name);
+        break;
+    }
+  }
 }
 
-const fed = new Fedex();
-const ups = new Fedex();
-const prof = new Fedex();
+function say() {
+  console.log("Hi I am a:" + this.name + "with a " + this.type);
+}
 
-const st =  new Strategy();
-st.setStrategy(fed);
-console.log(st.calc())
+const vf = new VehicleFact();
+const car = vf.create('Honda', 4);
+say.call(car)

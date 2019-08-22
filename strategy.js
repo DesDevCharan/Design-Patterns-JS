@@ -19,5 +19,5 @@ const ups = new UPS();
 const prof = new PRO();
 
 const st =  new Strategy();
-st.setStrategy(fed);
+st.setStrategy(ups);
 console.log(st.calc())
